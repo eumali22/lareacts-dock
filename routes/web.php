@@ -32,5 +32,13 @@ Route::get('/hello', function () {
   return Inertia::render('HelloWorld');
 })->name('hello');
 
+Route::get('/home', function () {
+  return Inertia::render('Home');
+})->middleware(['auth', 'verified'])->name('home');
+
+Route::get('/employees', function () {
+  return Inertia::render('Employees');
+})->middleware(['auth', 'verified'])->name('employees');
+
 require __DIR__.'/auth.php';
 
